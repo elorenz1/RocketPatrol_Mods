@@ -1,4 +1,4 @@
-// game configuration
+// game configuration lol
 let config = {
     type: Phaser.CANVAS,
     width: 640,
