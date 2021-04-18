@@ -57,6 +57,9 @@ class Play extends Phaser.Scene{
         // initialize score
         this.p1Score = 0;
 
+        // fire UI
+        this.fireUI = "FIRE";
+
         // initialize high score
         // this.p1HiScore = "High Score: " + this.p1Score;
 
@@ -78,8 +81,11 @@ class Play extends Phaser.Scene{
 
         scoreConfig.fixedWidth = 0;
 
-        this.scoreRight = this.add.text(borderUISize * 7 + borderPadding * 7, borderUISize + borderPadding*2,
-                "High Score: " + p1HiScore, scoreConfig);
+        this.scoreRight = this.add.text(borderUISize * 8 + borderPadding * 8, borderUISize + borderPadding*2,
+            "High Score: " + p1HiScore, scoreConfig);
+
+        this.fireUI = this.add.text(borderUISize * 4 + borderPadding * 4, borderUISize + borderPadding*2,
+            this.fireUI, scoreConfig);
 
         // GAME OVER flag
         this.gameOver = false;

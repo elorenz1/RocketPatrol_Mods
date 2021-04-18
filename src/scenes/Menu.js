@@ -25,7 +25,7 @@ class Menu extends Phaser.Scene{
         }
 
         //show menu text
-        this.scoreRight = this.add.text(borderUISize * 7 + borderPadding * 7, borderUISize + borderPadding*2,
+        this.scoreRight = this.add.text(borderUISize * 8 + borderPadding * 8, borderUISize + borderPadding*2,
           "High Score: " + p1HiScore, menuConfig);
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
             borderPadding, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
