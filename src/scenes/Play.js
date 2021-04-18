@@ -1,6 +1,7 @@
 class Play extends Phaser.Scene{
     constructor(){
         super("playScene");
+        //this.sfxMusic = scene.sound.add('sfx_music');
     }
 
     preload() {
@@ -15,6 +16,7 @@ class Play extends Phaser.Scene{
             startFrame: 8,
             endFrame: 9
         });
+        //sfxMusic = scene.sound.add('sfx_music');
     }
 
     create() {
@@ -98,16 +100,20 @@ class Play extends Phaser.Scene{
                 scoreConfig).setOrigin(0.5);
             this.gameOver = true;
         }, null, this);
+
+        this.sound.play('sfx_music');
     }
 
     update(){
         // check key input for restart
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
+            this.sound.pauseAll('sfx_music');
         }
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene");
+            this.sound.pauseAll('sfx_music');
         }       
 
         this.starfield.tilePositionX -= starSpeed;
