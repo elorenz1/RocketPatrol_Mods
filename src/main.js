@@ -15,3 +15,6 @@ let starSpeed = 4;
 
 // reserve keyboard bindings
 let keyF, keyR, keyLEFT, keyRIGHT;
+
+// set a high score counter
+let p1HiScore = 0;

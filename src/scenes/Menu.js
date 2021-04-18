@@ -25,6 +25,8 @@ class Menu extends Phaser.Scene{
         }
 
         //show menu text
+        this.scoreRight = this.add.text(borderUISize * 7 + borderPadding * 7, borderUISize + borderPadding*2,
+          "High Score: " + p1HiScore, menuConfig);
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
             borderPadding, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/2, 'Use <--> arrows to move & (F) to fire', 
@@ -44,7 +46,7 @@ class Menu extends Phaser.Scene{
           // easy mode
           game.settings = {
             spaceshipSpeed: 3,
-            gameTimer: 60000    
+            gameTimer: 7000    
           }
           this.sound.play('sfx_select');
           this.scene.start('playScene');    
@@ -53,7 +55,7 @@ class Menu extends Phaser.Scene{
           // hard mode
           game.settings = {
             spaceshipSpeed: 4,
-            gameTimer: 45000    
+            gameTimer: 5000    
           }
           this.sound.play('sfx_select');
           this.scene.start('playScene');    

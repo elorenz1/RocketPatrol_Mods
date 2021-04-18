@@ -18,7 +18,7 @@ class Play extends Phaser.Scene{
     }
 
     create() {
-        // palce starfield
+        // place starfield
         this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
 
 
@@ -57,13 +57,16 @@ class Play extends Phaser.Scene{
         // initialize score
         this.p1Score = 0;
 
+        // initialize high score
+        // this.p1HiScore = "High Score: " + this.p1Score;
+
         // display score
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
             backgroundColor: '#F3B141',
             color: '#843605',
-            aline: 'right',
+            align: 'right',
             padding: {
                 top: 5,
                 bottom: 5,
@@ -72,6 +75,11 @@ class Play extends Phaser.Scene{
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2,
             this.p1Score, scoreConfig);
+
+        scoreConfig.fixedWidth = 0;
+
+        this.scoreRight = this.add.text(borderUISize * 7 + borderPadding * 7, borderUISize + borderPadding*2,
+                "High Score: " + p1HiScore, scoreConfig);
 
         // GAME OVER flag
         this.gameOver = false;
@@ -146,8 +154,13 @@ class Play extends Phaser.Scene{
         // score add and repaint
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score;
+        //console.log(this.p1Score + " " + p1HiScore);
+        if (this.p1Score > p1HiScore) {
+            p1HiScore = this.p1Score;
+            this.scoreRight.text = "High Score: " + this.p1Score;
+        }
 
         this.sound.play('sfx_explosion');
     }
-           
+
 }
