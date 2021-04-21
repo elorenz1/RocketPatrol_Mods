@@ -6,8 +6,8 @@ class Spaceship extends Phaser.GameObjects.Sprite {
         this.points = pointValue;
         this.moveSpeed = game.settings.spaceshipSpeed;
         this.trip = 0;
+        this.shipDirection = Math.random();
     }
-
     /*dumbFunction(){
         if(this.scene.clock.getElapsed() > 2500){
             console.log("bruh");
@@ -16,7 +16,11 @@ class Spaceship extends Phaser.GameObjects.Sprite {
 
     update() {
         // move spaceship left
-        this.x -= this.moveSpeed;
+        if (this.shipDirection < .5){
+            this.x -= this.moveSpeed;
+        } else{
+            this.x += this.moveSpeed;
+        }
         //console.log(this.scene.clock.getElapsed());
         //console.log((game.settings.gameTimer)/2);
         //this.dumbFunction();
@@ -26,13 +30,25 @@ class Spaceship extends Phaser.GameObjects.Sprite {
             this.trip = 1;
         }
         // wrap around from left to right edge
-        if(this.x <= 0 - this.width) {
+        if(this.x <= 0 - this.width || this.x >= game.config.width) {
             this.reset();
         }
     }
     
     // position reset
     reset() {
-        this.x = game.config.width;
+        if(this.shipDirection < .5){
+            this.x = game.config.width;
+        } else {
+            this.x = 0 - this.width;
+        }
     }
+    /*
+    reset() {
+        if(this.x <= 0 - this.width){
+            this.x = game.config.width;
+        } else if(this.x >= game.config.width){
+            this.x = 0;
+        }
+    }*/
 }
