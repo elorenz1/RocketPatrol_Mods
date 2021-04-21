@@ -1,6 +1,7 @@
 class Play extends Phaser.Scene{
     constructor(){
         super("playScene");
+        //this.scene = scene;
         //this.sfxMusic = scene.sound.add('sfx_music');
     }
 
@@ -71,6 +72,9 @@ class Play extends Phaser.Scene{
         // fire UI
         this.fireUI = "FIRE";
 
+        // timer UI
+        this.timerUI = 0;
+
         // initialize high score
         // this.p1HiScore = "High Score: " + this.p1Score;
 
@@ -98,6 +102,9 @@ class Play extends Phaser.Scene{
         this.fireUI = this.add.text(borderUISize * 4 + borderPadding * 4, borderUISize + borderPadding*2,
             this.fireUI, scoreConfig);
 
+        this.timerUI = this.add.text(borderUISize * 6 + borderPadding * 6, borderUISize + borderPadding*2,
+            this.timerUI, scoreConfig);
+
         // GAME OVER flag
         this.gameOver = false;
 
@@ -124,7 +131,15 @@ class Play extends Phaser.Scene{
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene");
             this.sound.pauseAll('sfx_music');
-        }       
+        }  
+        
+        for(let i = 1; i < this.game.settings.gameTimer; i++) {
+            if(this.clock.getRemainingSeconds() > i) {
+                this.timerUI.text = Math.floor(this.clock.getRemainingSeconds());
+            }
+        }
+        //console.log(this.clock.getRemainingSeconds());
+        //this.timerUI = Math.floor(this.clock.getRemainingSeconds());
 
         this.starfield.tilePositionX -= starSpeed;
 
