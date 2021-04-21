@@ -7,6 +7,10 @@ class Menu extends Phaser.Scene{
         // load audio
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
+        this.load.audio('sfx_explosion01', './assets/explo01.wav');
+        this.load.audio('sfx_explosion02', './assets/explo02.wav');
+        this.load.audio('sfx_explosion03', './assets/explo03.wav');
+        this.load.audio('sfx_explosion04', './assets/explo04.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
         this.load.audio('sfx_music', './assets/Vibe48.wav');
     }

@@ -181,8 +181,24 @@ class Play extends Phaser.Scene{
                 p1HiScore = this.p1Score;
                 this.scoreRight.text = "High Score: " + this.p1Score;
             }
-
-            this.sound.play('sfx_explosion');
+            let w = Math.floor(Math.random()*4.8 + 1);
+            switch(w){
+                case 1:
+                    this.sound.play('sfx_explosion01');
+                    break;
+                case 2:
+                    this.sound.play('sfx_explosion02');
+                    break;
+                case 3: 
+                    this.sound.play('sfx_explosion03');
+                    break;
+                case 4:
+                    this.sound.play('sfx_explosion04');
+                    break;
+                case 5:
+                    this.sound.play('sfx_explosion');
+                    break;
+            }
         }
 
 }
