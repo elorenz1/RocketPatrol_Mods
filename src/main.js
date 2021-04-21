@@ -1,4 +1,4 @@
-/* *********************************************
+/* **************************************************************
 Name: Emersen Lorenz
 Project Title: RocketPatrol_Mods
 Time to Complete: 11 hours
@@ -16,8 +16,13 @@ Points BreakDown:
     - mouse control (20 pts)
     - final point count: 95
     - thoughts: USE mouse instead of arrow keys
-    because the mouse will override it usually.
-************************************************/
+        because the mouse will override it usually.
+    - received a push in the right direction for 
+        how to implement mouse control from 
+        Enrico W. and Adam Smith. They pointed me
+        to this site: 
+        https://phaser.io/examples/v3/view/input/mouse/mouse-down
+*****************************************************************/
 
 // game configuration lol
 let config = {
